@@ -1,0 +1,164 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background: #0a0b0f;
+    color: #edecee;
+    font-family: Inter;
+}
+
+.colorMain {
+    color:#7a12f7;
+}
+
+.container {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+}
+
+.generatorSect {
+    max-width: 1200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.textSect {
+    padding: 20px 0px;
+    display: flex;
+    gap: 10px;
+    text-align: center;
+    flex-direction: column;
+    align-items: center;
+}
+
+.textSect h2 {
+    font-size: 64px;
+}
+
+.textSect p {
+    font-size: 24px;
+}
+
+.btnGenerate {
+    background-color: #7a12f7;
+    border: 1px solid #7a12f7;
+    border-radius: 15px;
+    color:#edecee;
+    font-size: 22px;
+    font-weight: 500;
+    padding: 12px 18px;
+    text-align: center;
+    cursor: pointer;
+    display: flex;
+    gap: 15px;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.generateInputSect{
+    background: #090b0e;
+    border-radius: 14px;
+    color: #58c7fa00;
+    cursor: pointer;
+    font-size: 17px;
+    height: 64px;
+    margin-bottom: 20px;
+    padding: 2px 0 2px 2px;
+    position: relative;
+    text-align: center;
+    width: 100%;
+}
+
+@property --rotate {
+    syntax: "<angle>";
+    initial-value: 132deg;
+    inherits: false
+}
+
+.generateInputSect:before {
+    animation: spin 5s linear infinite;
+    background-image: linear-gradient(var(--rotate), #4b2fa4, #c18fff 43%, #33a9ff);
+    border-radius: 16px;
+    content: "";
+    inset: -3px;
+    position: absolute;
+    z-index: -1;
+}
+
+.generateInputSect:after {
+    animation: spin 6s linear infinite;
+    background-image: conic-gradient(from var(--rotate), #4b2fa4, #c18fff, #33a9ff, #c18fff, #4b2fa4);
+    content: "";
+    filter: blur(12.8px);
+    inset: -6px var(--afterWidth);
+    margin: 0 auto;
+    opacity: 1;
+    position: absolute;
+    transform: scale(.84);
+    transition: opacity .8s;
+    z-index: -1;
+}
+
+@keyframes spin {
+    0% {
+        --rotate: 0deg
+    }
+
+    25% {
+        --rotate: 150deg
+    }
+
+    50% {
+        --rotate: 180deg
+    }
+
+    75% {
+        --rotate: 240deg
+    }
+
+    to {
+        --rotate: 360deg
+    }
+}
+
+#generateInput {
+    background: none;
+    border: none;
+    box-sizing: border-box;
+    color: #fefefe;
+    font: inherit;
+    height: 100%;
+    outline: none;
+    padding: 15px 14px;
+    width: 100%;
+    cursor: none;
+    text-align: center;
+    height: auto; /* Allows height to adjust */
+    min-height: 64px; /* Ensures it doesn't get too small */
+    font-size: 20px;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    white-space: pre-wrap;
+    resize: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@media (max-width: 470px) {
+    #generateInput {
+        font-size: 16px;
+        padding: 10px 14px;
+    }
+}
